@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل استبيان رضا أولياء الأمور عن الملتقى التربوي 2025</title>
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #4caf50;
+            --accent-color: #ff9800;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #1a3a6e);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-right: 5px solid var(--primary-color);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            font-size: 1.6rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 15px 0 10px;
+            font-size: 1.3rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: var(--light-color);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .question-analysis {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-right: 3px solid var(--secondary-color);
+        }
+        
+        .rating-bar {
+            height: 25px;
+            background: #e0e0e0;
+            border-radius: 12px;
+            margin: 8px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .rating-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), #8bc34a);
+            border-radius: 12px;
+            transition: width 0.5s ease;
+        }
+        
+        .rating-label {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            color: white;
+            font-weight: bold;
+            line-height: 25px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feedback-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .feedback-content {
+            color: #555;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background: #1a3a6e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-right: 5px solid var(--primary-color);
+        }
+        
+        .conclusion h2 {
+            color: #1565c0;
+        }
+        
+        .recommendations {
+            margin-top: 20px;
+        }
+        
+        .recommendation-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>تحليل استبيان رضا أولياء الأمور عن الملتقى التربوي 2025</h1>
+            <p class="subtitle">مدرسة محمد بن سليمان - تحليل شامل لنتائج الاستبيان</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="section">
+            <h2>نظرة عامة على النتائج</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">35</div>
+                    <div class="stat-label">إجمالي المشاركين</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8.7/10</div>
+                    <div class="stat-label">متوسط التقييم العام</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">94%</div>
+                    <div class="stat-label">نسبة الرضا العامة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">97%</div>
+                    <div class="stat-label">نسبة الحضور الشخصي</div>
+                </div>
+            </div>
+            
+            <p>شارك في الاستبيان 35 من أولياء الأمور، حيث أظهرت النتائج مستوى رضا مرتفعاً عن الملتقى التربوي بمتوسط تقييم 8.7 من 10. وقد حضر الغالبية العظمى من المشاركين شخصياً في المدرسة، بينما تواصل عدد قليل هاتفياً فقط.</p>
+        </div>
+        
+        <div class="section">
+            <h2>تحليل الأسئلة التفصيلي</h2>
+            
+            <div class="question-analysis">
+                <h3>وضوح الدعوة وهدف اللقاء</h3>
+                <p>تقييم وضوح الدعوة والهدف من اللقاء من قبل أولياء الأمور:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 82%"></div>
+                    <div class="rating-label">82% راضٍ تماماً</div>
+                </div>
+                <p>أظهر 82% من أولياء الأمور رضاهم التام عن وضوح الدعوة وهدف اللقاء، بينما أبدى 12% رضاهم بدرجة متوسطة، و6% غير راضين.</p>
+            </div>
+            
+            <div class="question-analysis">
+                <h3>مناسبة وقت اللقاء</h3>
+                <p>تقييم مناسبة وقت اللقاء لأولياء الأمور:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 76%"></div>
+                    <div class="rating-label">76% راضٍ تماماً</div>
+                </div>
+                <p>أبدى 76% من المشاركين رضاهم التام عن وقت اللقاء، بينما أشار 18% إلى أن الوقت يحتاج تحسين، و6% غير راضين عن الوقت المحدد.</p>
+            </div>
+            
+            <div class="question-analysis">
+                <h3>تنظيم الاستقبال والتوجيه</h3>
+                <p>تقييم تنظيم عملية الاستقبال والتوجيه في الملتقى:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 85%"></div>
+                    <div class="rating-label">85% راضٍ تماماً</div>
+                </div>
+                <p>حصل تنظيم الاستقبال والتوجيه على أعلى نسبة رضا بنسبة 85%، مما يشير إلى التنظيم الجيد والاستقبال الحافل الذي لاقى استحسان أولياء الأمور.</p>
+            </div>
+            
+            <div class="question-analysis">
+                <h3>سهولة استخدام التطبيق الإلكتروني</h3>
+                <p>تقييم سهولة استخدام التطبيق الإلكتروني:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 79%"></div>
+                    <div class="rating-label">79% راضٍ تماماً</div>
+                </div>
+                <p>أعرب 79% من المشاركين عن رضاهم التام عن سهولة استخدام التطبيق الإلكتروني، بينما واجه 15% بعض الصعوبات، و6% غير راضين.</p>
+            </div>
+            
+            <div class="question-analysis">
+                <h3>ملاءمة مدة اللقاء</h3>
+                <p>تقييم ملاءمة مدة اللقاء:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 74%"></div>
+                    <div class="rating-label">74% راضٍ تماماً</div>
+                </div>
+                <p>أبدى 74% من أولياء الأمور رضاهم عن مدة اللقاء، بينما طالب 21% بتمديد المدة، و5% اعتبروا المدة غير مناسبة.</p>
+            </div>
+            
+            <div class="question-analysis">
+                <h3>وضوح شرح الدرجات والمستوى</h3>
+                <p>تقييم وضوح شرح الدرجات والمستوى الدراسي للطلاب:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 82%"></div>
+                    <div class="rating-label">82% راضٍ تماماً</div>
+                </div>
+                <p>أعرب 82% من المشاركين عن رضاهم التام عن وضوح شرح الدرجات والمستوى الدراسي لأبنائهم، مما يدل على فعالية التواصل بين المعلمين وأولياء الأمور.</p>
+            </div>
+            
+            <div class="question-analysis">
+                <h3>فرصة طرح الأسئلة</h3>
+                <p>تقييم فرصة طرح الأسئلة والاستفسارات:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 80%"></div>
+                    <div class="rating-label">80% راضٍ تماماً</div>
+                </div>
+                <p>أعرب 80% من أولياء الأمور عن رضاهم عن فرصة طرح الأسئلة والاستفسارات، مما يدل على المناخ التفاعلي الإيجابي الذي ساد اللقاء.</p>
+            </div>
+            
+            <div class="question-analysis">
+                <h3>الاستماع لملاحظات أولياء الأمور</h3>
+                <p>تقييم مدى استماع المدرسة لملاحظات أولياء الأمور:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 75%"></div>
+                    <div class="rating-label">75% راضٍ تماماً</div>
+                </div>
+                <p>أعرب 75% من المشاركين عن رضاهم عن استماع المدرسة لملاحظاتهم، بينما شعر 18% أن استماع المدرسة كان متوسطاً، و7% غير راضين.</p>
+            </div>
+            
+            <div class="question-analysis">
+                <h3>الشعور بالشراكة في القرارات</h3>
+                <p>تقييم الشعور بالشراكة في القرارات التربوية:</p>
+                <div class="rating-bar">
+                    <div class="rating-fill" style="width: 78%"></div>
+                    <div class="rating-label">78% راضٍ تماماً</div>
+                </div>
+                <p>أعرب 78% من أولياء الأمور عن شعورهم بالشراكة في القرارات التربوية، مما يعكس نجاح المدرسة في تعزيز مفهوم الشراكة المجتمعية.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>أبرز نقاط القوة</h2>
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>التنظيم والاستقبال</span>
+                </div>
+                <div class="feedback-content">
+                    "التنظيم الرائع للملتقى والاستقبال المنظم ورحابة الصدر التي يتمتع بها الكادر التعليمي"
+                </div>
+            </div>
+            
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>تفاعل المعلمين</span>
+                </div>
+                <div class="feedback-content">
+                    "سعة صدر المعلمين في الجواب على أسئلة أولياء الامور ووضوح الردود"
+                </div>
+            </div>
+            
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>الشفافية في التواصل</span>
+                </div>
+                <div class="feedback-content">
+                    "شفافية وسهولة الحوار بين المعلم وولي الامر ووضوح شرح مستوى الطالب"
+                </div>
+            </div>
+            
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>اللقاء المباشر</span>
+                </div>
+                <div class="feedback-content">
+                    "لقاء مباشر مع المعلمين لمناقشة أوضاع ومستوى الأبناء بكل شفافية"
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>جوانب تحتاج تحسينًا</h2>
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>توقيت اللقاء</span>
+                </div>
+                <div class="feedback-content">
+                    "التوقيت غير مناسب لمعظم أولياء الأمور العاملين، ويُفضل أن يكون في المساء أو عطلة نهاية الأسبوع"
+                </div>
+            </div>
+            
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>التنظيم المكاني</span>
+                </div>
+                <div class="feedback-content">
+                    "المكان مكتظ والزحام كبير، ويحتاج إلى توسعة أو تنظيم أفضل لمواقع المدرسين"
+                </div>
+            </div>
+            
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>مدة اللقاء</span>
+                </div>
+                <div class="feedback-content">
+                    "المدة غير كافية لمناقشة جميع الجوانب، ويُفضل تمديدها"
+                </div>
+            </div>
+            
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>الدعوة المبكرة</span>
+                </div>
+                <div class="feedback-content">
+                    "الحاجة إلى إرسال الدعوة قبل الملتقى بفترة كافية لتمكين أولياء الأمور من ترتيب أوقاتهم"
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>مقترحات أولياء الأمور</h2>
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>زيادة الحضور</span>
+                </div>
+                <div class="feedback-content">
+                    "تقديم حوافز تحفيزية للحضور، تغيير التوقيت إلى المساء، إرسال تذكير مبكر، مشاركة أولياء الأمور في تحديد موعد اللقاء"
+                </div>
+            </div>
+            
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>الورش والبرامج</span>
+                </div>
+                <div class="feedback-content">
+                    "عقد ورش عن كيفية متابعة مراجعة الطالب في المنزل، مهارات التواصل مع الآخرين، توزيع منشورات تربوية، مناقشة سير التعليم وانجازات المدرسة"
+                </div>
+            </div>
+            
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span>تحسين التواصل</span>
+                </div>
+                <div class="feedback-content">
+                    "تفعيل التواصل عن بعد لأولياء الأمور الذين لا يتمكنوا من الحضور، توفير أرقام جميع المدرسين للتواصل المباشر، إرسال تقارير شهرية عن مستوى الطلاب"
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <a href="https://sultanalwaeli.github.io/poll/" class="btn" target="_blank">شارك في الاستبيان</a>
+        </div>
+        
+        <div class="conclusion">
+            <h2>الخلاصة والتوصيات</h2>
+            <p>بناءً على تحليل نتائج الاستبيان، يمكن استنتاج أن الملتقى التربوي 2025 حقق نجاحاً ملحوظاً من حيث التنظيم والاستقبال وجودة التواصل مع أولياء الأمور. وقد أشاد المشاركون بشكل خاص برحابة صدر الكادر التعليمي وشفافية الحوار حول مستوى الطلاب.</p>
+            
+            <div class="recommendations">
+                <h3>التوصيات الرئيسية:</h3>
+                
+                <div class="recommendation-item">
+                    <strong>تحسين توقيت اللقاء:</strong> النظر في تغيير توقيت اللقاء إلى الفترة المسائية أو عطلة نهاية الأسبوع لتمكين أكبر عدد من أولياء الأمور من الحضور.
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>التنظيم المكاني:</strong> تحسين تنظيم مواقع المدرسين وتوسعة المكان لتقليل الزحام وتسهيل حركة أولياء الأمور.
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>الدعوة المبكرة:</strong> إرسال الدعوات قبل الملتقى بفترة كافية (أسبوعين على الأقل) لتمكين أولياء الأمور من ترتيب أوقاتهم.
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>تمديد مدة اللقاء:</strong> النظر في تمديد مدة اللقاء لتمكين مناقشة أكثر شمولاً لجميع الجوانب التربوية.
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>تفعيل التواصل عن بعد:</strong> توفير خيارات للتواصل عن بعد لأولياء الأمور الذين لا يستطيعون الحضور شخصياً.
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px; font-weight: bold;">نشكر جميع أولياء الأمور على مشاركتهم القيمة وآرائهم البناءة التي تسهم في تطوير العملية التعليمية وتحسين تجربة أبنائنا الطلاب.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>مدرسة محمد بن سليمان - قسم التطوير التربوي</p>
+            <p>© 2025 - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+</body>
+</html>
